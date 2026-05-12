@@ -345,11 +345,26 @@ function LeavePage() {
 
       <style>{`
         @media print {
-          @page { size: A4 landscape; margin: 1cm; }
+          @page { size: A4 landscape; margin: 0.6cm; }
+          html, body { background: white !important; }
           .no-print { display: none !important; }
-          .header { background: white !important; box-shadow: none !important; padding: 0 0 12px !important; border-bottom: 3px solid var(--gold); }
-          .header h1 { color: var(--primary) !important; text-shadow: none !important; }
-          .header p { color: var(--muted-foreground) !important; }
+          .header { background: white !important; box-shadow: none !important; padding: 0 0 8px !important; margin: 0 !important; border-bottom: 2px solid var(--gold); overflow: visible !important; }
+          .header h1 { color: var(--primary) !important; text-shadow: none !important; font-size: 18px !important; }
+          .header p { color: #555 !important; font-size: 11px !important; }
+          .header .w-\\[104px\\] { width: 60px !important; height: 60px !important; }
+          .header img { width: 56px !important; height: 56px !important; }
+          main, .min-h-screen { min-height: 0 !important; padding-bottom: 0 !important; }
+          .max-w-\\[1180px\\] { margin-top: 8px !important; max-width: 100% !important; padding: 0 4px !important; }
+          /* Compact stat cards */
+          .grid { gap: 6px !important; margin-bottom: 8px !important; }
+          [class*="rounded-xl"] { box-shadow: none !important; }
+          table { font-size: 10px !important; }
+          th, td { padding: 4px 6px !important; }
+          input { border: none !important; padding: 0 !important; font-size: 10px !important; background: transparent !important; }
+          /* Avoid breaks */
+          table, thead, tbody, tr { page-break-inside: avoid !important; break-inside: avoid !important; }
+          .bg-card { page-break-inside: avoid !important; break-inside: avoid !important; }
+          footer, p.mt-6 { margin-top: 6px !important; font-size: 9px !important; }
         }
       `}</style>
     </div>
