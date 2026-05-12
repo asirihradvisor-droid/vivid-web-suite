@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "حاسبة رصيد الإجازات السنوية | شركة بلدي للدواجن" },
       { name: "description", content: "حاسبة احترافية لرصيد الإجازات السنوية وفق نظام العمل السعودي - شركة بلدي للدواجن" },
       { name: "author", content: "Baladi Poultry" },
-      { property: "og:title", content: "حاسبة رصيد الإجازات السنوية" },
-      { property: "og:description", content: "أداة احترافية لحساب رصيد الإجازات وفق المادة 109" },
+      { property: "og:title", content: "حاسبة رصيد الإجازات السنوية | شركة بلدي للدواجن" },
+      { property: "og:description", content: "حاسبة احترافية لرصيد الإجازات السنوية وفق نظام العمل السعودي - شركة بلدي للدواجن" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "حاسبة رصيد الإجازات السنوية | شركة بلدي للدواجن" },
+      { name: "twitter:description", content: "حاسبة احترافية لرصيد الإجازات السنوية وفق نظام العمل السعودي - شركة بلدي للدواجن" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e047c821-f361-4aad-b631-a131ad282acc/id-preview-d21a02fa--576f8ecf-21e6-4ea7-9e04-65531039aacf.lovable.app-1778614379535.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e047c821-f361-4aad-b631-a131ad282acc/id-preview-d21a02fa--576f8ecf-21e6-4ea7-9e04-65531039aacf.lovable.app-1778614379535.png" },
     ],
     links: [
       {
