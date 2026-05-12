@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;900&display=swap');
+
 /*
  * Design system definition.
  *
@@ -63,25 +65,36 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(0.985 0.005 250);
+  --foreground: oklch(0.18 0.04 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.04 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.18 0.04 265);
+  --primary: oklch(0.32 0.13 265);
   --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.96 0.012 250);
+  --secondary-foreground: oklch(0.32 0.13 265);
   --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --muted-foreground: oklch(0.5 0.04 257);
+  --accent: oklch(0.45 0.18 260);
+  --accent-foreground: oklch(0.99 0.003 247);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
+  --border: oklch(0.91 0.014 255);
   --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --ring: oklch(0.45 0.18 260);
+  --gold: oklch(0.85 0.17 90);
+  --gold-dark: oklch(0.78 0.16 85);
+  --success: oklch(0.62 0.18 145);
+  --success-bg: oklch(0.95 0.07 145);
+  --danger: oklch(0.58 0.22 27);
+  --danger-bg: oklch(0.95 0.05 27);
+  --gradient-header: linear-gradient(135deg, oklch(0.32 0.13 265) 0%, oklch(0.42 0.16 260) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.17 90), oklch(0.78 0.16 85));
+  --shadow-header: 0 8px 32px oklch(0.32 0.13 265 / 0.25);
+  --shadow-card: 0 4px 20px oklch(0.18 0.04 265 / 0.06);
+  --shadow-elev: 0 12px 40px oklch(0.18 0.04 265 / 0.12);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
