@@ -181,8 +181,8 @@ function LeavePage() {
         }} />
         <div className="absolute top-0 inset-x-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, var(--gold) 50%, transparent)", opacity: 0.7 }} />
         <div className="relative max-w-[1180px] mx-auto px-6 flex items-center gap-5">
-          <div className="w-[88px] h-[88px] flex-shrink-0 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/15">
-            <img src={logo} alt="شعار شركة بلدي للدواجن" width={72} height={72} className="object-contain" />
+          <div className="w-[104px] h-[104px] flex-shrink-0 rounded-2xl bg-white flex items-center justify-center ring-2 ring-white/30 shadow-lg p-2">
+            <img src={logo} alt="شعار شركة بلدي للدواجن" width={96} height={96} className="object-contain w-full h-full" />
           </div>
           <div className="flex-1 min-w-0">
             <h1 className="font-[Cairo] font-extrabold text-white text-[clamp(22px,3.5vw,34px)] m-0 leading-tight tracking-wide" style={{ textShadow: "0 2px 8px rgb(0 0 0 / 0.15)" }}>
