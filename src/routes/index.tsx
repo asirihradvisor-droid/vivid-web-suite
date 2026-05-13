@@ -252,7 +252,7 @@ function LeavePage() {
             <table className="w-full border-collapse">
               <thead style={{ background: "oklch(0.96 0.012 250)" }}>
                 <tr>
-                  {["الرقم الوظيفي", "الاسم", "تاريخ المباشرة", "آخر يوم عمل", "المستخدم", "الرصيد المستحق", "الرصيد المتبقي", ""].map((h, i) => (
+                  {["الرقم الوظيفي", "الاسم", "تاريخ المباشرة", "آخر يوم عمل", "سنوات الخدمة", "المستخدم", "الرصيد المستحق", "الرصيد المتبقي", ""].map((h, i) => (
                     <th key={i} className="px-4 py-3.5 text-right text-[11px] font-bold uppercase tracking-wider text-muted-foreground whitespace-nowrap font-[Cairo]">
                       {h}
                     </th>
@@ -264,12 +264,18 @@ function LeavePage() {
                   const valid = row.start && row.end && new Date(row.end) > new Date(row.start);
                   const total = valid && calculated ? calculateLeave(row.start, row.end) : null;
                   const remaining = total !== null ? total - row.used : null;
+                  const ten = valid ? tenureYears(row.start, row.end) : null;
                   return (
                     <tr key={row.id} className="border-t transition hover:bg-secondary/40">
                       <td className="px-4 py-3"><Input value={row.empId} placeholder="EMP-001" onChange={(v) => updateRow(row.id, { empId: v })} /></td>
                       <td className="px-4 py-3"><Input value={row.name} placeholder="اسم الموظف" onChange={(v) => updateRow(row.id, { name: v })} /></td>
                       <td className="px-4 py-3"><Input type="date" value={row.start} onChange={(v) => updateRow(row.id, { start: v })} /></td>
                       <td className="px-4 py-3"><Input type="date" value={row.end} onChange={(v) => updateRow(row.id, { end: v })} /></td>
+                      <td className="px-4 py-3 text-center">
+                        {ten !== null
+                          ? <span className="font-[Cairo] font-bold text-sm tabular-nums" style={{ color: "var(--accent)" }}>{ten.toFixed(2)}</span>
+                          : <span className="text-muted-foreground/50">—</span>}
+                      </td>
                       <td className="px-4 py-3">
                         <input
                           type="number" min={0} step={0.5} value={row.used}
@@ -308,7 +314,7 @@ function LeavePage() {
                   );
                 })}
                 {filteredRows.length === 0 && (
-                  <tr><td colSpan={8} className="text-center py-10 text-muted-foreground text-sm">لا توجد نتائج مطابقة للبحث</td></tr>
+                  <tr><td colSpan={9} className="text-center py-10 text-muted-foreground text-sm">لا توجد نتائج مطابقة للبحث</td></tr>
                 )}
               </tbody>
             </table>
@@ -372,7 +378,7 @@ function LeavePage() {
       <style>{`
         .print-only { display: none; }
         @media print {
-          @page { size: A4 landscape; margin: 0.4cm; }
+          @page { size: A4 portrait; margin: 0.4cm; }
           html, body { background: white !important; height: auto !important; }
           body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; zoom: 0.85; }
           .no-print { display: none !important; }
