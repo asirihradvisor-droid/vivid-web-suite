@@ -329,6 +329,32 @@ function LeavePage() {
         <p className="mt-6 text-center text-xs text-muted-foreground">
           الحساب وفق المادة 109 من نظام العمل السعودي &nbsp;•&nbsp; شركة بلدي للدواجن © 2026
         </p>
+
+        {/* Print-only signature & approval block */}
+        <div className="print-only signatures" aria-hidden>
+          <div className="sig-grid">
+            <div className="sig-box">
+              <div className="sig-title">أُعدّ بواسطة:</div>
+              <div className="sig-line" />
+              <div className="sig-row"><span>الاسم:</span> <span className="dots">..............................</span></div>
+              <div className="sig-row"><span>المسمى الوظيفي:</span> <span>مسؤول الموارد البشرية</span></div>
+              <div className="sig-row"><span>التوقيع:</span> <span className="dots">..............................</span></div>
+              <div className="sig-row"><span>التاريخ:</span> <span className="date-val" /></div>
+            </div>
+            <div className="sig-box">
+              <div className="sig-title">اعتمد بواسطة:</div>
+              <div className="sig-line" />
+              <div className="sig-row"><span>الاسم:</span> <span className="dots">..............................</span></div>
+              <div className="sig-row"><span>المسمى الوظيفي:</span> <span>مدير الموارد البشرية</span></div>
+              <div className="sig-row"><span>التوقيع:</span> <span className="dots">..............................</span></div>
+              <div className="sig-row"><span>التاريخ:</span> <span className="date-val" /></div>
+            </div>
+            <div className="sig-box stamp-box">
+              <div className="sig-title center">الختم الرسمي</div>
+              <div className="stamp-circle">ختم الشركة</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {toast && (
@@ -344,10 +370,12 @@ function LeavePage() {
       )}
 
       <style>{`
+        .print-only { display: none; }
         @media print {
           @page { size: A4 landscape; margin: 0.6cm; }
           html, body { background: white !important; }
           .no-print { display: none !important; }
+          .print-only { display: block !important; }
           .header { background: white !important; box-shadow: none !important; padding: 0 0 8px !important; margin: 0 !important; border-bottom: 2px solid var(--gold); overflow: visible !important; }
           .header h1 { color: var(--primary) !important; text-shadow: none !important; font-size: 18px !important; }
           .header p { color: #555 !important; font-size: 11px !important; }
@@ -365,6 +393,18 @@ function LeavePage() {
           table, thead, tbody, tr { page-break-inside: avoid !important; break-inside: avoid !important; }
           .bg-card { page-break-inside: avoid !important; break-inside: avoid !important; }
           footer, p.mt-6 { margin-top: 6px !important; font-size: 9px !important; }
+          /* Signatures block */
+          .signatures { margin-top: 10px !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+          .sig-grid { display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 10px; direction: rtl; }
+          .sig-box { border: 1px solid #d4d4d8; border-radius: 8px; padding: 8px 10px; font-size: 10px; min-height: 95px; background: #fafafa; }
+          .sig-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 11px; }
+          .sig-title.center { text-align: center; }
+          .sig-row { display: flex; gap: 6px; margin-top: 4px; font-size: 10px; color: #333; }
+          .sig-row span:first-child { font-weight: 700; min-width: 80px; }
+          .dots { letter-spacing: 1px; color: #888; }
+          .stamp-box { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+          .stamp-circle { width: 80px; height: 80px; border: 2px dashed #9ca3af; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 10px; margin-top: 6px; }
+          .date-val::before { content: "${new Date().toLocaleDateString("en-GB").replace(/\//g, "/")}"; }
         }
       `}</style>
     </div>
