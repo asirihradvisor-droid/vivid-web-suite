@@ -372,38 +372,50 @@ function LeavePage() {
       <style>{`
         .print-only { display: none; }
         @media print {
-          @page { size: A4 landscape; margin: 0.6cm; }
-          html, body { background: white !important; }
+          @page { size: A4 landscape; margin: 0.4cm; }
+          html, body { background: white !important; height: auto !important; }
+          body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; zoom: 0.85; }
           .no-print { display: none !important; }
           .print-only { display: block !important; }
-          .header { background: white !important; box-shadow: none !important; padding: 0 0 8px !important; margin: 0 !important; border-bottom: 2px solid var(--gold); overflow: visible !important; }
-          .header h1 { color: var(--primary) !important; text-shadow: none !important; font-size: 18px !important; }
-          .header p { color: #555 !important; font-size: 11px !important; }
-          .header .w-\\[104px\\] { width: 60px !important; height: 60px !important; }
-          .header img { width: 56px !important; height: 56px !important; }
+          .header { background: white !important; box-shadow: none !important; padding: 0 0 4px !important; margin: 0 !important; border-bottom: 1.5px solid var(--gold); overflow: visible !important; }
+          .header h1 { color: var(--primary) !important; text-shadow: none !important; font-size: 15px !important; }
+          .header p { color: #555 !important; font-size: 9px !important; margin-top: 2px !important; }
+          .header .w-\\[104px\\] { width: 46px !important; height: 46px !important; padding: 2px !important; }
+          .header img { width: 42px !important; height: 42px !important; }
           main, .min-h-screen { min-height: 0 !important; padding-bottom: 0 !important; }
-          .max-w-\\[1180px\\] { margin-top: 8px !important; max-width: 100% !important; padding: 0 4px !important; }
+          .max-w-\\[1180px\\] { margin-top: 4px !important; max-width: 100% !important; padding: 0 2px !important; }
           /* Compact stat cards */
-          .grid { gap: 6px !important; margin-bottom: 8px !important; }
+          .grid { gap: 4px !important; margin-bottom: 4px !important; }
           [class*="rounded-xl"] { box-shadow: none !important; }
-          table { font-size: 10px !important; }
-          th, td { padding: 4px 6px !important; }
-          input { border: none !important; padding: 0 !important; font-size: 10px !important; background: transparent !important; }
+          /* Compact stat cards content */
+          .grid > div { padding: 6px 8px !important; min-height: 0 !important; }
+          .grid .text-\\[26px\\] { font-size: 16px !important; }
+          .grid .w-11 { width: 22px !important; height: 22px !important; margin-bottom: 2px !important; }
+          .grid .w-11 svg { width: 12px !important; height: 12px !important; }
+          .grid .text-xs { font-size: 8.5px !important; }
+          .grid .absolute.top-0.right-0 { display: none !important; }
+          /* Hide tenure strip when printing to save space */
+          .signatures ~ *, .mb-5.px-5.py-3 { display: none !important; }
+          table { font-size: 9px !important; }
+          th, td { padding: 2px 4px !important; }
+          thead th { font-size: 8px !important; padding: 3px 4px !important; }
+          input { border: none !important; padding: 0 !important; font-size: 9px !important; background: transparent !important; }
           /* Avoid breaks */
           table, thead, tbody, tr { page-break-inside: avoid !important; break-inside: avoid !important; }
           .bg-card { page-break-inside: avoid !important; break-inside: avoid !important; }
-          footer, p.mt-6 { margin-top: 6px !important; font-size: 9px !important; }
+          footer, p.mt-6 { margin-top: 4px !important; font-size: 8px !important; }
+          .px-6.py-5 { padding: 4px 8px !important; }
           /* Signatures block */
-          .signatures { margin-top: 10px !important; page-break-inside: avoid !important; break-inside: avoid !important; }
-          .sig-grid { display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 10px; direction: rtl; }
-          .sig-box { border: 1px solid #d4d4d8; border-radius: 8px; padding: 8px 10px; font-size: 10px; min-height: 95px; background: #fafafa; }
-          .sig-title { font-weight: 700; color: var(--primary); margin-bottom: 6px; font-size: 11px; }
+          .signatures { margin-top: 6px !important; page-break-inside: avoid !important; break-inside: avoid !important; display: block !important; }
+          .sig-grid { display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 6px; direction: rtl; }
+          .sig-box { border: 1px solid #d4d4d8; border-radius: 6px; padding: 5px 7px; font-size: 9px; min-height: 70px; background: #fafafa; }
+          .sig-title { font-weight: 700; color: var(--primary); margin-bottom: 3px; font-size: 10px; }
           .sig-title.center { text-align: center; }
-          .sig-row { display: flex; gap: 6px; margin-top: 4px; font-size: 10px; color: #333; }
-          .sig-row span:first-child { font-weight: 700; min-width: 80px; }
+          .sig-row { display: flex; gap: 4px; margin-top: 2px; font-size: 9px; color: #333; }
+          .sig-row span:first-child { font-weight: 700; min-width: 70px; }
           .dots { letter-spacing: 1px; color: #888; }
           .stamp-box { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-          .stamp-circle { width: 80px; height: 80px; border: 2px dashed #9ca3af; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 10px; margin-top: 6px; }
+          .stamp-circle { width: 56px; height: 56px; border: 1.5px dashed #9ca3af; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #9ca3af; font-size: 9px; margin-top: 3px; }
           .date-val::before { content: "${new Date().toLocaleDateString("en-GB").replace(/\//g, "/")}"; }
         }
       `}</style>
